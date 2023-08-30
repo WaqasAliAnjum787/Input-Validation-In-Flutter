@@ -1,0 +1,41 @@
+removeSpaces in a string
+
+
+
+
+void main(List<String> args) {
+  print('Waqas Ali Anjum'.removeTheSpace());
+}
+
+extension IsHaveAnySpace on String {
+  //check that data is empty or not
+  bool isIsEmpty() {
+    var data = length;
+    if (data == 0) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  bool isHaveSpace() {
+    String data = this;
+    if (isIsEmpty()) {
+      return false;
+    } else {
+      bool isHave = codeUnits.any((element) => element == 32);
+      return isHave;
+    }
+  }
+
+  String removeTheSpace() {
+    String data = this;
+    if (isHaveSpace()) {
+      List listOfWord = data.split('');
+      listOfWord.retainWhere((element) => element != " ");
+      return listOfWord.join();
+    } else {
+      return '';
+    }
+  }
+}
